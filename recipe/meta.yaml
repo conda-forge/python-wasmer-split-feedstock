@@ -6,8 +6,10 @@ package:
   name: python-wasmer-split
 
 source:
-  - url: https://github.com/wasmerio/wasmer-python/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 220af5b2675480daea4ebc1cede45728ce1b270cdc141ebff08ef0870cc23cfd
+  url: https://github.com/wasmerio/wasmer-python/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 220af5b2675480daea4ebc1cede45728ce1b270cdc141ebff08ef0870cc23cfd
+  patches:
+    - 0000-deprecated-maturin-metadata.diff
 
 build:
   number: 3

@@ -1,0 +1,120 @@
+diff --git a/packages/api/Cargo.toml b/packages/api/Cargo.toml
+index 84a3bc5..1d45060 100644
+--- a/packages/api/Cargo.toml
++++ b/packages/api/Cargo.toml
+@@ -27,25 +27,3 @@ cfg-if = "1.0"
+ 
+ [build-dependencies]
+ pyo3-build-config = "0.14"
+-
+-[package.metadata.maturin]
+-classifier = [
+-    "Programming Language :: Python",
+-    "Programming Language :: Python :: 3",
+-    "Programming Language :: Python :: 3.7",
+-    "Programming Language :: Python :: 3.8",
+-    "Programming Language :: Python :: 3.9",
+-    "Programming Language :: Python :: 3.10",
+-    "Programming Language :: Python :: Implementation :: CPython",
+-    "Programming Language :: Rust",
+-    "Topic :: Software Development",
+-    "Topic :: Software Development :: Compilers",
+-    "Topic :: Software Development :: Interpreters",
+-    "License :: OSI Approved :: MIT License",
+-    "Operating System :: OS Independent",
+-]
+-
+-[package.metadata.maturin.project-url]
+-"Source Code" = "https://github.com/wasmerio/wasmer-python/"
+-"Bug Tracker" = "https://github.com/wasmerio/wasmer-python/issues"
+-"Documentation" = "https://github.com/wasmerio/wasmer-python/"
+diff --git a/packages/compiler-cranelift/Cargo.toml b/packages/compiler-cranelift/Cargo.toml
+index 9cfb5ff..082dc77 100644
+--- a/packages/compiler-cranelift/Cargo.toml
++++ b/packages/compiler-cranelift/Cargo.toml
+@@ -18,25 +18,3 @@ crate-type = ["cdylib"]
+ wasmer-engines = { path = "../engines/" }
+ wasmer-compiler-cranelift = "2.1.1"
+ pyo3 = { version = "0.14", features = ["extension-module"] }
+-
+-[package.metadata.maturin]
+-classifier = [
+-    "Programming Language :: Python",
+-    "Programming Language :: Python :: 3",
+-    "Programming Language :: Python :: 3.7",
+-    "Programming Language :: Python :: 3.8",
+-    "Programming Language :: Python :: 3.9",
+-    "Programming Language :: Python :: 3.10",
+-    "Programming Language :: Python :: Implementation :: CPython",
+-    "Programming Language :: Rust",
+-    "Topic :: Software Development",
+-    "Topic :: Software Development :: Compilers",
+-    "Topic :: Software Development :: Interpreters",
+-    "License :: OSI Approved :: MIT License",
+-    "Operating System :: OS Independent",
+-]
+-
+-[package.metadata.maturin.project-url]
+-"Source Code" = "https://github.com/wasmerio/wasmer-python/"
+-"Bug Tracker" = "https://github.com/wasmerio/wasmer-python/issues"
+-"Documentation" = "https://github.com/wasmerio/wasmer-python/"
+diff --git a/packages/compiler-llvm/Cargo.toml b/packages/compiler-llvm/Cargo.toml
+index 735ec71..2b0d0bb 100644
+--- a/packages/compiler-llvm/Cargo.toml
++++ b/packages/compiler-llvm/Cargo.toml
+@@ -18,25 +18,3 @@ crate-type = ["cdylib"]
+ wasmer-engines = { path = "../engines/" }
+ wasmer-compiler-llvm = "2.1.1"
+ pyo3 = { version = "0.14", features = ["extension-module"] }
+-
+-[package.metadata.maturin]
+-classifier = [
+-    "Programming Language :: Python",
+-    "Programming Language :: Python :: 3",
+-    "Programming Language :: Python :: 3.7",
+-    "Programming Language :: Python :: 3.8",
+-    "Programming Language :: Python :: 3.9",
+-    "Programming Language :: Python :: 3.10",
+-    "Programming Language :: Python :: Implementation :: CPython",
+-    "Programming Language :: Rust",
+-    "Topic :: Software Development",
+-    "Topic :: Software Development :: Compilers",
+-    "Topic :: Software Development :: Interpreters",
+-    "License :: OSI Approved :: MIT License",
+-    "Operating System :: OS Independent",
+-]
+-
+-[package.metadata.maturin.project-url]
+-"Source Code" = "https://github.com/wasmerio/wasmer-python/"
+-"Bug Tracker" = "https://github.com/wasmerio/wasmer-python/issues"
+-"Documentation" = "https://github.com/wasmerio/wasmer-python/"
+diff --git a/packages/compiler-singlepass/Cargo.toml b/packages/compiler-singlepass/Cargo.toml
+index cc7f648..97b0126 100644
+--- a/packages/compiler-singlepass/Cargo.toml
++++ b/packages/compiler-singlepass/Cargo.toml
+@@ -18,25 +18,3 @@ crate-type = ["cdylib"]
+ wasmer-engines = { path = "../engines/" }
+ wasmer-compiler-singlepass = "2.1.1"
+ pyo3 = { version = "0.14", features = ["extension-module"] }
+-
+-[package.metadata.maturin]
+-classifier = [
+-    "Programming Language :: Python",
+-    "Programming Language :: Python :: 3",
+-    "Programming Language :: Python :: 3.7",
+-    "Programming Language :: Python :: 3.8",
+-    "Programming Language :: Python :: 3.9",
+-    "Programming Language :: Python :: 3.10",
+-    "Programming Language :: Python :: Implementation :: CPython",
+-    "Programming Language :: Rust",
+-    "Topic :: Software Development",
+-    "Topic :: Software Development :: Compilers",
+-    "Topic :: Software Development :: Interpreters",
+-    "License :: OSI Approved :: MIT License",
+-    "Operating System :: OS Independent",
+-]
+-
+-[package.metadata.maturin.project-url]
+-"Source Code" = "https://github.com/wasmerio/wasmer-python/"
+-"Bug Tracker" = "https://github.com/wasmerio/wasmer-python/issues"
+-"Documentation" = "https://github.com/wasmerio/wasmer-python/"
