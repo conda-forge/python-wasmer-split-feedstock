@@ -1,6 +1,5 @@
 {% set version = "1.1.0" %}
 {% set llvm_version = 13 %}
-{% set maturin_version = "*" %}
 
 package:
   name: python-wasmer-split
@@ -28,119 +27,101 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
-        - sysroot_linux-64 2.17  # [linux64]
         - cargo-bundle-licenses
-
+        - sysroot_linux-64 2.17  # [linux64]
       host:
-        - python
+        - lld
+        - maturin
         - pip
-        - maturin {{ maturin_version }}
-        - lld
         - pytest
-
-      run:
         - python
+        - zlib
+      run:
         - lld
-
+        - python
+        - zlib
     test:
       imports:
         - wasmer
-
 
   - name: python-wasmer-compiler-cranelift
     version: {{ version }}
     script: build_wasmer.sh  # [unix]
     script: build_wasmer.bat  # [win]
-
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
         - cargo-bundle-licenses
-
       host:
-        - python
+        - {{ pin_subpackage("python-wasmer", max_pin="x.x.x") }}
+        - maturin
         - pip
-        - maturin {{ maturin_version }}
         - pytest
         - pytest-benchmark
-        - python-wasmer
-
-      run:
-        - python-wasmer
         - python
-
+        - zlib
+      run:
+        - {{ pin_subpackage("python-wasmer", max_pin="x.x.x") }}
+        - python
     test:
       imports:
         - wasmer_compiler_cranelift
 
-
   - name: python-wasmer-compiler-singlepass
     version: {{ version }}
     script: build_wasmer.sh  # [unix]
-
     build:
       skip: true  # [win]
-
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
         - cargo-bundle-licenses
-
-
       host:
-        - python
+        - {{ pin_subpackage("python-wasmer", max_pin="x.x.x") }}
+        - maturin
         - pip
-        - maturin {{ maturin_version }}
         - pytest
-        - python-wasmer
-
-      run:
-        - python-wasmer
         - python
-
+      run:
+        - {{ pin_subpackage("python-wasmer", max_pin="x.x.x") }}
+        - python
     test:
       imports:
         - wasmer_compiler_singlepass  # [unix]
 
-
   - name: python-wasmer-compiler-llvm
     version: {{ version }}
     script: build_wasmer.sh  # [unix]
-
     build:
       skip: true  # [win]
-
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
         - cargo-bundle-licenses
-
       host:
-        - python
-        - pip
-        - maturin {{ maturin_version }}
-        - pytest
-        - pytest-benchmark
+        - {{ pin_subpackage("python-wasmer-compiler-cranelift", max_pin="x.x.x") }}
         - clang
         - llvmdev {{ llvm_version }}.*
-        - python-wasmer
-        - python-wasmer-compiler-cranelift
-
+        - maturin
+        - pip
+        - pytest
+        - pytest-benchmark
+        - python
+        - zlib
       run:
+        - {{ pin_subpackage("python-wasmer", max_pin="x.x.x") }}
         - clang
-        - libzlib
         - libffi
         - libllvm{{ llvm_version }}
         - libstdcxx-ng  # [linux64]
-        - python-wasmer
         - python
-
+        - zlib
     test:
       imports:
         - wasmer_compiler_llvm  # [unix]
