@@ -1,5 +1,6 @@
 {% set version = "1.1.0" %}
 {% set llvm_version = 13 %}
+{% set maturin_version = ">=0.14,<0.15" %}
 
 package:
   name: python-wasmer-split
@@ -31,7 +32,7 @@ outputs:
       host:
         - python
         - pip
-        - maturin
+        - maturin {{ maturin_version }}
         - lld
         - pytest
 
@@ -59,7 +60,7 @@ outputs:
       host:
         - python
         - pip
-        - maturin
+        - maturin {{ maturin_version }}
         - pytest
         - pytest-benchmark
         - python-wasmer
@@ -91,7 +92,7 @@ outputs:
       host:
         - python
         - pip
-        - maturin
+        - maturin {{ maturin_version }}
         - pytest
         - python-wasmer
 
@@ -121,7 +122,7 @@ outputs:
       host:
         - python
         - pip
-        - maturin
+        - maturin {{ maturin_version }}
         - pytest
         - pytest-benchmark
         - clang
