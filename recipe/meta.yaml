@@ -3,15 +3,14 @@
 
 package:
   name: python-wasmer-split
+  version: {{ version }}
 
 source:
   url: https://github.com/wasmerio/wasmer-python/archive/refs/tags/{{ version }}.tar.gz
   sha256: 8e32674dfe679e3bec1228eeb514f78b40b6fb8d8655a69765b405cbfe9c8682
-  patches:
-    - 0000-deprecated-maturin-metadata.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38]
 
 outputs:
@@ -25,14 +24,14 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
-        - sysroot_linux-64 2.17  # [linux64]
         - cargo-bundle-licenses
       host:
         - python
         - pip
-        - maturin
+        - maturin >=0.14,<0.15
         - lld
         - pytest
         - zlib  # [linux]
@@ -50,13 +49,14 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
         - cargo-bundle-licenses
       host:
         - python
         - pip
-        - maturin
+        - maturin >=0.14,<0.15
         - pytest
         - pytest-benchmark
         - python-wasmer
@@ -75,13 +75,14 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
         - cargo-bundle-licenses
       host:
         - python
         - pip
-        - maturin
+        - maturin >=0.14,<0.15
         - pytest
         - python-wasmer
       run:
@@ -99,13 +100,14 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - {{ compiler('rust') }}
         - cargo-bundle-licenses
       host:
         - python
         - pip
-        - maturin
+        - maturin >=0.14,<0.15
         - pytest
         - pytest-benchmark
         - clang
@@ -117,7 +119,6 @@ outputs:
         - clang
         - libffi
         - libllvm{{ llvm_version }}
-        - libstdcxx-ng  # [linux64]
         - python-wasmer
         - python
     test:
